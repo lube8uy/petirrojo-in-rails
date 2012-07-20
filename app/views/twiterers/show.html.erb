@@ -1,0 +1,19 @@
+<h1><%=@user.name %></h1>
+<table>
+	<tr>
+		<td><%= image_tag(@user.profile_image_url) %></td>
+		<td>
+			<table>
+				<tr>
+					<td><%=@user.location %> (<%=@user.lang %>)</td>
+				</tr>
+				<tr>
+					<td><%=@user.friends_count %> amigos</td>
+				</tr>
+				<tr>
+					<td> <i>&laquo;<%=@user.description %>&raquo;</i></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+<table>

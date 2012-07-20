@@ -1,0 +1,16 @@
+<h1>Que se dice sobre <%=@trend.name %>?</h1>
+ 
+<table>
+  
+<% @twits.each do |twit| %>
+  <tr>
+    <td><%= TwitterFormatter.linkify(twit.body).html_safe %></td>
+  </tr>
+  <tr>
+  	<td><%= link_to twit.from_user, twiterer_path(twit.from_user_id)%></td>
+  </tr>
+  <tr><td>------------------------</td></tr>
+<% end %>
+</table>
+ 
+<br />
