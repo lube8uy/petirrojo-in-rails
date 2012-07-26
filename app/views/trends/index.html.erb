@@ -1,15 +1,21 @@
-<h1>Listing trends</h1>
- 
-<table>
-  <tr>
-    <th>Name</th>
-  </tr>
- 
-<% @trends.each do |trend| %>
-  <tr>
-    <td><%= link_to trend.name, trend%></td>
-  </tr>
-<% end %>
-</table>
- 
-<br />
+<div id="content" role="main">
+
+    <article class="post">
+    
+        <h2 class="entry-title">Ultimos trends</h2>
+                
+        <div class="entry-content">
+			<table>
+				<% @trends.each do |trend| %>
+					<tr>
+						<td><%= link_to trend.name, trend %></td>
+					</tr>
+				<% end %>
+			</table>
+        </div> 
+            
+    </article> 
+    
+    <hr /> 
+
+</div> 

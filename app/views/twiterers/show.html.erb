@@ -1,19 +1,35 @@
-<h1><%=@user.name %></h1>
-<table>
-	<tr>
-		<td><%= image_tag(@user.profile_image_url) %></td>
-		<td>
+<div id="content" role="main">
+
+    <article class="post">
+    
+        <h2 class="entry-title"><%=@user.name %></h2>
+                
+        <div class="entry-content">
 			<table>
 				<tr>
-					<td><%=@user.location %> (<%=@user.lang %>)</td>
+					<td><%= image_tag(@user.profile_image_url, :class => "img-resizer") %></td>
+					<td>
+						<table>
+							<tr>
+								<td><%=@user.location %> (<%=@user.lang %>)</td>
+							</tr>
+							<tr>
+								<td><%=@user.friends_count %> amigos</td>
+							</tr>
+							<% if @user.description != "" %>
+								<tr>
+									<td> <i>&laquo;<%=@user.description %>&raquo;</i></td>
+								</tr>
+							<% end %>
+						</table>
+					</td>
 				</tr>
-				<tr>
-					<td><%=@user.friends_count %> amigos</td>
-				</tr>
-				<tr>
-					<td> <i>&laquo;<%=@user.description %>&raquo;</i></td>
-				</tr>
+			<table>
 			</table>
-		</td>
-	</tr>
-<table>
+        </div> 
+            
+    </article> 
+    
+    <hr /> 
+
+</div> 

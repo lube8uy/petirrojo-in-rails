@@ -11,14 +11,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120720031358) do
+ActiveRecord::Schema.define(:version => 20120726012347) do
 
   create_table "trends", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
+    t.integer  "clicks"
   end
 
   add_index "trends", ["name"], :name => "index_trends_on_name", :unique => true
+
+  create_table "twiterers", :force => true do |t|
+    t.integer  "twitter_id"
+    t.integer  "friends_count"
+    t.string   "profile_image_url"
+    t.string   "location"
+    t.text     "description",       :limit => 16777215
+    t.string   "lang"
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
+    t.string   "name",              :limit => 140
+  end
 
   create_table "twits", :force => true do |t|
     t.integer  "twitter_id"
@@ -33,17 +46,6 @@ ActiveRecord::Schema.define(:version => 20120720031358) do
     t.string   "to_user"
     t.integer  "to_user_id"
     t.string   "to_user_name"
-  end
-
-  create_table "twitter_users", :force => true do |t|
-    t.integer  "twitter_id"
-    t.integer  "friends_count"
-    t.string   "profile_image_url"
-    t.string   "location"
-    t.text     "description",       :limit => 16777215
-    t.string   "lang"
-    t.datetime "created_at",                            :null => false
-    t.datetime "updated_at",                            :null => false
   end
 
 end

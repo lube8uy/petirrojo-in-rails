@@ -17,7 +17,7 @@ class Twiterer < ActiveRecord::Base
       :friends_count => user['friends_count'], 
       :lang => user['lang'],
       :location => user['location'],
-      :profile_image_url => user['profile_image_url'], 
+      :profile_image_url => user['profile_image_url'].gsub("_normal", ""), 
       :twitter_id => user['twitter_id']
     )
   end

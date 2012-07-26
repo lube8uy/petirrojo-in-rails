@@ -12,6 +12,7 @@ Petirrojo::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
      match 'trends/search' => 'trends#search', :as => :trend_search
+     match 'about' => 'static#about', :as => :about
      resources :trends, :twiterers
 
   # Sample resource route with options:

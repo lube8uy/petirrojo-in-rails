@@ -15,10 +15,15 @@ class Trend < ActiveRecord::Base
   	get_db_trends(q)
   end
 
+  def Trend.most_clicked(q = 5)
+    Trend.find(:all, :order => 'clicks desc', :limit => q)
+  end
+
   def Trend.twits(id)
   	trend = Trend.find(id)
   	client = TwitterApi.new
   	twits = client.get_twits_for_trend(trend.name).response["results"]
+    Trend.increment_counter(:clicks, id)
   	result = []
   	twits.each do |twit|
 	  	result << Trend.json_twit_to_object(twit)
