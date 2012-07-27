@@ -20,6 +20,10 @@ class TwitterApi
 		ask_rest_client(__method__, id)
 	end
 	
+	def get_user_information_by_username(id)
+		ask_rest_client(__method__, id)
+	end
+
 	private
 	
 	def ask_rest_client(method, *params)

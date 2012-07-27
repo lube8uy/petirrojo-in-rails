@@ -21,6 +21,11 @@ class TwitterRestClient
 		check_id_argument(id)
 		get('http://api.twitter.com/1/users/lookup.json', {'user_id' => id.to_s.strip})
 	end
+
+	def get_user_information_by_username(username)
+		check_string_argument(username)
+		get('http://api.twitter.com/1/users/lookup.json', {'screen_name' => username.to_s.strip})
+	end
 	
 	private
 	
@@ -42,9 +47,11 @@ class TwitterRestClient
 	def get(uri, params={})
 		uri = URI(uri)
 		uri.query = URI.encode_www_form(params)
+		p uri
 		res = Net::HTTP.get_response(uri)
 		if res.is_a?(Net::HTTPSuccess)
 			response = res.body
+			p response
 			JSON.parse(response)
 		else 
 			raise TwitterRestClientException.new(res.code), "#{res.code}: #{res.message}"

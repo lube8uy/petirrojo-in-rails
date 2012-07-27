@@ -1,0 +1,12 @@
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2012-07-26 21:42:44 -0300
+Processing by TrendsController#index as HTML
+Completed 500 Internal Server Error in 64ms
+
+ActiveRecord::StatementInvalid (Could not find table 'trends'):
+  app/models/trend.rb:19:in `most_clicked'
+  app/controllers/application_controller.rb:8:in `load_sidebar_data'
+
+

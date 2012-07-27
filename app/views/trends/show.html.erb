@@ -9,9 +9,9 @@
 				<% @twits.each do |twit| %>
 					<tr>
 						<td>
-							<%= TwitterFormatter.linkify(twit.body).html_safe %>
+							<%= linkify(twit.body).html_safe %>
 							<br />
-							<%= link_to twit.from_user, twiterer_path(twit.from_user_id)%>
+							<i><%= link_to twit.from_user, twiterer_path(twit.from_user_id)%></i>
 						</td>
 					</tr>
 				<% end %>

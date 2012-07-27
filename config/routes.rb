@@ -14,6 +14,7 @@ Petirrojo::Application.routes.draw do
      match 'trends/search' => 'trends#search', :as => :trend_search
      match 'about' => 'static#about', :as => :about
      resources :trends, :twiterers
+     #match 'twiterers/:username' => 'twiterers#show', :as => :twiterer_username, :constrain => { :username => /[A-Za-z0-9_]+/ }
 
   # Sample resource route with options:
   #   resources :products do
